@@ -1,5 +1,5 @@
 {
-  "name": "axcess-common",
+  "name": "insolvency-common",
   "version": "0.0.1",
   "description": "Axcess common modules",
   "main": "build/index.umd.js",
@@ -17,10 +17,10 @@
   "testEnvironment": "node",
   "repository": {
     "type": "git",
-    "url": "ssh://git-codecommit.us-east-2.amazonaws.com/v1/repos/axcess-common"
+    "url": "ssh://git-codecommit.ap-northeast-1.amazonaws.com/v1/repos/insolvency-common"
   },
   "keywords": [
-    "axcess"
+    "insolvency"
   ],
   "author": "Matiboy <mathieu@redapesolutions.com>",
   "license": "ISC",
