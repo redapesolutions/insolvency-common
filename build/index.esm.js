@@ -1,8 +1,21 @@
 const AssetCategories = {};
 
-AssetCategories[AssetCategories['Loan'] = 'loan'] = 'Loan';
-AssetCategories[AssetCategories['CashInHand'] = 'cashInHand'] = 'CashInHand';
-AssetCategories[AssetCategories['LeaseholdProperty'] = 'leaseHoldProperty'] = 'LeaseholdProperty';
+AssetCategories[AssetCategories['balanceAtBank'] = 'Balance_At_Bank'] = 'balanceAtBank';
+AssetCategories[AssetCategories['cashInHand'] = 'Cash_In_Hand'] = 'cashInHand';
+AssetCategories[AssetCategories['marketableSecurities'] = 'Marketable_Securities'] = 'marketableSecurities';
+AssetCategories[AssetCategories['billsReceivable'] = 'Bills_Receivable'] = 'billsReceivable';
+AssetCategories[AssetCategories['tradeDebtors'] = 'Trade_Debtors'] = 'tradeDebtors';
+AssetCategories[AssetCategories['loanAndAdvance'] = 'Loan_And_Advance'] = 'loanAndAdvance';
+AssetCategories[AssetCategories['unpaidCalls'] = 'Unpaid_Calls'] = 'unpaidCalls';
+AssetCategories[AssetCategories['stockInTrade'] = 'Stock_In_Trade'] = 'stockInTrade';
+AssetCategories[AssetCategories['freeholdProperty'] = 'Freehold_Property'] = 'freeholdProperty';
+AssetCategories[AssetCategories['leaseholdProperty'] = 'Leasehold_Property'] = 'leaseholdProperty';
+AssetCategories[AssetCategories['plantAndProperty'] = 'Plant_And_Property'] = 'plantAndProperty';
+AssetCategories[AssetCategories['furnitureFittings,UtensilsEtc'] = 'Furniture_Fittings,_Utensils_Etc'] = 'furnitureFittings,UtensilsEtc';
+AssetCategories[AssetCategories['leaseholdProperty'] = 'Leasehold_Property'] = 'leaseholdProperty';
+AssetCategories[AssetCategories['investmentOtherThanMarketableSecurities'] = 'Investment_Other_Than_Marketable_Securities'] = 'investmentOtherThanMarketableSecurities';
+AssetCategories[AssetCategories['livestock'] = 'Livestock'] = 'livestock';
+AssetCategories[AssetCategories['otherProperty'] = 'Other_Property'] = 'otherProperty';
 
 const addToHistoryN = n => (value, old) => [value, ...old.filter(h => h !== value).slice(0, n - 1)];
 
