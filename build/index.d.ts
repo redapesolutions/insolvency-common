@@ -1,53 +1,3 @@
-
-
-export declare enum DocumentCategoryType {
-    Company_Profiles,
-    Financial_Comparison,
-    Certificate_of_Incorporation,
-    Certificate_of_Change_of_Name,
-    Certificate_of_Conversion_of_Company,
-    Corporate_Form_Images,
-    Attestation_of_Company_Good_Standing,
-    Business_Profiles,
-    Business_Registration_Certificate,
-    Business_Termination_Letter,
-    Business_Form_Images,
-    Particulars_of_Directors_Officers,
-    Particulars_of_Registered_Address,
-    Particulars_of_Share_Capital,
-    Particulars_of_Shareholder,
-}
-
-export interface DocumentSummary {
-    title: string,
-    category: DocumentCategoryType,
-    price: number,
-}
-export declare const buildDocument: (title: string, category: DocumentCategoryType) => DocumentSummary
-
-export declare const DefaultDocumentTypes: {
-    Company: DocumentSummary[],
-    Business: DocumentSummary[]
-}
-
-export declare enum CategoryPrice {
-    Company_Profiles,
-    Financial_Comparison,
-    Certificate_of_Incorporation,
-    Certificate_of_Change_of_Name,
-    Certificate_of_Conversion_of_Company,
-    Corporate_Form_Images,
-    Attestation_of_Company_Good_Standing,
-    Business_Profiles,
-    Business_Registration_Certificate,
-    Business_Termination_Letter,
-    Business_Form_Images,
-    Particulars_of_Directors_Officers,
-    Particulars_of_Registered_Address,
-    Particulars_of_Share_Capital,
-    Particulars_of_Shareholder,
-}
-
 export declare enum States {
     JOHOR,
     KEDAH,
@@ -98,4 +48,24 @@ export declare enum ParticipantSides {
 export declare enum Languages {
     English,
     BahasaMalaya
+}
+
+export interface Asset {
+    //Three first are avilable after saving to DB
+    AssetId?: string
+    UserId?: string
+    created?: number
+    category: AssetCategories
+    description: string
+    amount: number
+}
+
+export enum AssetCategories {
+    Loan = 'loan',
+    CashInHand = 'cashInHand',
+    LeaseholdProperty = 'leaseHoldProperty'
+}
+
+export interface AssetsCollection {
+    assets: Asset[]
 }
