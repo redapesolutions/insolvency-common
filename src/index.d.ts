@@ -60,10 +60,24 @@ export interface Asset {
     amount: number
 }
 
-export enum AssetCategories {
-    Loan = 'loan',
+export declare enum AssetCategories {
+    BalanceAtBank = 'balanceAtBank',
     CashInHand = 'cashInHand',
-    LeaseholdProperty = 'leaseHoldProperty'
+    MarketableSecurities = 'marketableSecurities',
+    BillsReceivable = 'billsReceivable',
+    TradeDebtors = 'tradeDebtors',
+    LoanAndAdvance = 'loanAndAdvance',
+    UnpaidCalls = 'unpaidCalls',
+    StockInTrade = 'stockInTrade',
+    FreeholdProperty = 'freeholdProperty',
+    LeaseholdProperty = 'leaseholdProperty',
+    PlantAndProperty = 'plantAndProperty',
+    FurnitureFittings,UtensilsEtc = 'furnitureFittings,UtensilsEtc',
+    LeaseholdProperty = 'leaseholdProperty',
+    InvestmentOtherThanMarketableSecurities = 'investmentOtherThanMarketableSecurities',
+    Livestock = 'livestock',
+    OtherProperty = 'otherProperty',
+    
 }
 
 export interface AssetsCollection {
