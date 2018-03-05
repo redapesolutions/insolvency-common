@@ -1,0 +1,43 @@
+{
+  "name": "axcess-common",
+  "version": "1.0.8",
+  "description": "Axcess common modules",
+  "main": "build/index.umd.js",
+  "module": "build/index.esm.js",
+  "scripts": {
+    "test": "npm run build && jest",
+    "build": "./node_modules/.bin/rollup -c rollup.config.js"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "build/index.umd.js"
+    ]
+  },
+  "testEnvironment": "node",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git-codecommit.us-east-2.amazonaws.com/v1/repos/axcess-common"
+  },
+  "keywords": [
+    "axcess"
+  ],
+  "author": "Matiboy <mathieu@redapesolutions.com>",
+  "license": "ISC",
+  "types": "build/index.d.ts",
+  "dependencies": {
+    "jest": "^22.3.0",
+    "lodash": "^4.17.5",
+    "rollup": "^0.55.5"
+  },
+  "devDependencies": {
+    "husky": "^0.15.0-rc.8",
+    "rollup-plugin-copy": "^0.2.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "./node_modules/.bin/rollup -c rollup.config.js && npm test",
+      "postversion": "git push && git push --tags"
+    }
+  }
+}
