@@ -40,6 +40,10 @@ ApplicationStatus[ApplicationStatus['Reviewing'] = 'reviewing'] = 'Reviewing';
 ApplicationStatus[ApplicationStatus['Accepted'] = 'accepted'] = 'Accepted';
 ApplicationStatus[ApplicationStatus['Rejected'] = 'rejected'] = 'Rejected';
 
+const ApplicationType = {
+    TravelingAbroad: 1
+};
+
 const addToHistoryN = n => (value, old) => [value, ...old.filter(h => h !== value).slice(0, n - 1)];
 
 const addToHistory = addToHistoryN(10);
@@ -101,6 +105,7 @@ Languages[Languages['BahasaMalaya'] = 'BM'] = 'BahasaMalaya';
 exports.AssetCategories = AssetCategories;
 exports.getSingleAssetCategories = getSingleAssetCategories;
 exports.ApplicationStatus = ApplicationStatus;
+exports.ApplicationType = ApplicationType;
 exports.addToHistoryN = addToHistoryN;
 exports.addToHistory = addToHistory;
 exports.Groups = Groups;

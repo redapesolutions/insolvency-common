@@ -78,6 +78,10 @@ export declare enum AssetCategories {
     OtherProperty = 'otherProperty',
 }
 
+export declare enum ApplicationType {
+    TravelingAbroad
+}
+
 export interface AssetsCollection {
     assets: Asset[]
 }
