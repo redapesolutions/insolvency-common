@@ -72,14 +72,19 @@ export declare enum AssetCategories {
     FreeholdProperty = 'freeholdProperty',
     LeaseholdProperty = 'leaseholdProperty',
     PlantAndProperty = 'plantAndProperty',
-    FurnitureFittings,UtensilsEtc = 'furnitureFittings,UtensilsEtc',
-    LeaseholdProperty = 'leaseholdProperty',
+    FurnitureFittingsUtensilsEtc = 'furnitureFittingsUtensilsEtc',
     InvestmentOtherThanMarketableSecurities = 'investmentOtherThanMarketableSecurities',
     Livestock = 'livestock',
     OtherProperty = 'otherProperty',
-    
 }
 
 export interface AssetsCollection {
     assets: Asset[]
+}
+
+export declare enum ApplicationStatus {
+    Pending,
+    Reviewing,
+    Accepted,
+    Rejected
 }
