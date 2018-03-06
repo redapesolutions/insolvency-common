@@ -17,6 +17,13 @@ AssetCategories[AssetCategories['investmentOtherThanMarketableSecurities'] = 'In
 AssetCategories[AssetCategories['livestock'] = 'Livestock'] = 'livestock';
 AssetCategories[AssetCategories['otherProperty'] = 'OtherProperty'] = 'otherProperty';
 
+const ApplicationStatus = {};
+
+ApplicationStatus[ApplicationStatus['Pending'] = 'pending'] = 'Pending';
+ApplicationStatus[ApplicationStatus['Reviewing'] = 'reviewing'] = 'Reviewing';
+ApplicationStatus[ApplicationStatus['Accepted'] = 'accepted'] = 'Accepted';
+ApplicationStatus[ApplicationStatus['Rejected'] = 'rejected'] = 'Rejected';
+
 const addToHistoryN = n => (value, old) => [value, ...old.filter(h => h !== value).slice(0, n - 1)];
 
 const addToHistory = addToHistoryN(10);
@@ -75,5 +82,5 @@ const Languages = {};
 Languages[Languages['English'] = 'EN'] = 'English';
 Languages[Languages['BahasaMalaya'] = 'BM'] = 'BahasaMalaya';
 
-export { AssetCategories, addToHistoryN, addToHistory, Groups, UsageCategories, States, Services, ParticipantSides, Languages };
+export { AssetCategories, ApplicationStatus, addToHistoryN, addToHistory, Groups, UsageCategories, States, Services, ParticipantSides, Languages };
 //# sourceMappingURL=index.esm.js.map
