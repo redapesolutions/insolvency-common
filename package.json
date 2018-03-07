@@ -1,6 +1,6 @@
 {
   "name": "insolvency-common",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "Axcess common modules",
   "main": "build/index.umd.js",
   "module": "build/index.esm.js",
