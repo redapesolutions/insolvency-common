@@ -119,5 +119,5 @@ export interface IInsolvencyNumberValidationResult extends IValidationResult {
 }
 
 
-export declare function validateSubmitAssets (assets: Asset[]): IValidationResult
+export declare function validateSubmitAssets (assets: Asset[]): ISubmitAssetsValidationResult
 export declare function validateInsolvencyNumber (insolvencyNumber: string): IInsolvencyNumberValidationResult
