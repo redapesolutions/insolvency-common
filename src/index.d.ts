@@ -113,4 +113,4 @@ export interface IValidationResult {
 }
 
 
-export declare const validateSubmitAssets: (assets: Asset[]) => IValidationResult
+export declare function validateSubmitAssets (assets: Asset[]): IValidationResult
