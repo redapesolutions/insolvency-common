@@ -92,3 +92,25 @@ export declare enum ApplicationStatus {
     Accepted,
     Rejected
 }
+
+export interface IValidationResult {
+    isValid: boolean,
+    assetsCollection: {
+        isValid: boolean
+    },
+    amount: {
+        isValid: boolean,
+        invalidElementIndexes: number[]
+    },
+    category: {
+        isValid: boolean,
+        invalidElementIndexes: number[]
+    },
+    description: {
+        isValid: boolean,
+        invalidElementIndexes: number[]
+    },
+}
+
+
+export declare const validateSubmitAssets = (assets: Asset[]) => IValidationResult
