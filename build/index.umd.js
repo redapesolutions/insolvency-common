@@ -6,31 +6,90 @@
 
 const AssetCategories = {};
 
-AssetCategories[AssetCategories['balanceAtBank'] = 'BalanceAtBank'] = 'balanceAtBank';
-AssetCategories[AssetCategories['cashInHand'] = 'CashInHand'] = 'cashInHand';
-AssetCategories[AssetCategories['marketableSecurities'] = 'MarketableSecurities'] = 'marketableSecurities';
-AssetCategories[AssetCategories['billsReceivable'] = 'BillsReceivable'] = 'billsReceivable';
-AssetCategories[AssetCategories['tradeDebtors'] = 'TradeDebtors'] = 'tradeDebtors';
-AssetCategories[AssetCategories['loanAndAdvance'] = 'LoanAndAdvance'] = 'loanAndAdvance';
-AssetCategories[AssetCategories['unpaidCalls'] = 'UnpaidCalls'] = 'unpaidCalls';
-AssetCategories[AssetCategories['stockInTrade'] = 'StockInTrade'] = 'stockInTrade';
-AssetCategories[AssetCategories['freeholdProperty'] = 'FreeholdProperty'] = 'freeholdProperty';
-AssetCategories[AssetCategories['leaseholdProperty'] = 'LeaseholdProperty'] = 'leaseholdProperty';
-AssetCategories[AssetCategories['plantAndProperty'] = 'PlantAndProperty'] = 'plantAndProperty';
-AssetCategories[AssetCategories['furnitureFittingsUtensilsEtc'] = 'FurnitureFittingsUtensilsEtc'] = 'furnitureFittingsUtensilsEtc';
-AssetCategories[AssetCategories['investmentOtherThanMarketableSecurities'] = 'InvestmentOtherThanMarketableSecurities'] = 'investmentOtherThanMarketableSecurities';
-AssetCategories[AssetCategories['livestock'] = 'Livestock'] = 'livestock';
-AssetCategories[AssetCategories['otherProperty'] = 'OtherProperty'] = 'otherProperty';
+AssetCategories[AssetCategories['Balance at bank'] = 'BalanceAtBank'] = 'Balance at bank';
+AssetCategories[AssetCategories['Cash in hand'] = 'CashInHand'] = 'Cash in hand';
+AssetCategories[AssetCategories['Marketable securities'] = 'MarketableSecurities'] = 'Marketable securities';
+AssetCategories[AssetCategories['Bills receivable'] = 'BillsReceivable'] = 'Bills receivable';
+AssetCategories[AssetCategories['Trade debtors'] = 'TradeDebtors'] = 'Trade debtors';
+AssetCategories[AssetCategories['Loan and advance'] = 'LoanAndAdvance'] = 'Loan and advance';
+AssetCategories[AssetCategories['Unpaid calls'] = 'UnpaidCalls'] = 'Unpaid calls';
+AssetCategories[AssetCategories['Stock in trade'] = 'StockInTrade'] = 'Stock in trade';
+AssetCategories[AssetCategories['Freehold property'] = 'FreeholdProperty'] = 'Freehold property';
+AssetCategories[AssetCategories['Leasehold property'] = 'LeaseholdProperty'] = 'Leasehold property';
+AssetCategories[AssetCategories['Plant and property'] = 'PlantAndProperty'] = 'Plant and property';
+AssetCategories[AssetCategories['Furniture, fittings, utensils, etc'] = 'FurnitureFittingsUtensilsEtc'] = 'Furniture, fittings, utensils, etc';
+AssetCategories[AssetCategories['Investment other than marketable securities'] = 'InvestmentOtherThanMarketableSecurities'] = 'Investment other than marketable securities';
+AssetCategories[AssetCategories['Livestock'] = 'Livestock'] = 'Livestock';
+AssetCategories[AssetCategories['Other property'] = 'OtherProperty'] = 'Other property';
 
 const getSingleAssetCategories = () => {
     let object = {};
-    let regexp = new RegExp(/^[A-Z]/);
-    for(let category in AssetCategories){
-        if(category.match(regexp))
+    let regexp = new RegExp(/.*[ ].*/);
+    for (let category in AssetCategories) {
+        if (!category.match(regexp))
             object[category] = AssetCategories[category];
     }
 
     return object;
+};
+
+var isArray = require('lodash/isArray');
+var isNumber = require('lodash/isNumber');
+var isString = require('lodash/isString');
+var cloneDeep = require('lodash/cloneDeep');
+const defaultValidationResult = {
+    isValid: true,
+    assetsCollection: {
+        isValid: true
+    },
+    amount: {
+        isValid: true,
+        invalidElementIndexes: []
+    },
+    category: {
+        isValid: true,
+        invalidElementIndexes: []
+    },
+    description: {
+        isValid: true,
+        invalidElementIndexes: []
+    },
+};
+
+const validateSubmitAssets = (assets) => {
+    let result = cloneDeep(defaultValidationResult);
+
+    if (!isArray(assets) || assets.length <= 0) {
+        result.isValid = false;
+        result.assetsCollection.isValid = false;
+        return result
+    }
+
+    let index = -1;
+
+    for (let asset of assets) {
+        index++;
+
+        if (asset.amount !== null && (!isNumber(asset.amount) || asset.amount <= 0)) {
+            result.isValid = false;
+            result.amount.isValid = false;
+            result.amount.invalidElementIndexes.push(index);
+        }
+
+        if (AssetCategories[asset.category] === undefined) {
+            result.isValid = false;
+            result.category.isValid = false;
+            result.category.invalidElementIndexes.push(index);
+        }
+
+        if (!isString(asset.description) || asset.description.length <= 0) {
+            result.isValid = false;
+            result.description.isValid = false;
+            result.description.invalidElementIndexes.push(index);
+        }
+    }
+
+    return result
 };
 
 const ApplicationStatus = {};
@@ -104,6 +163,7 @@ Languages[Languages['BahasaMalaya'] = 'BM'] = 'BahasaMalaya';
 
 exports.AssetCategories = AssetCategories;
 exports.getSingleAssetCategories = getSingleAssetCategories;
+exports.validateSubmitAssets = validateSubmitAssets;
 exports.ApplicationStatus = ApplicationStatus;
 exports.ApplicationType = ApplicationType;
 exports.addToHistoryN = addToHistoryN;

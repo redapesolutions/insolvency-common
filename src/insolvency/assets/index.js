@@ -1,1 +1,1 @@
-export * from './assetCategories'
+export * from './assets'
