@@ -97,6 +97,18 @@ const ApplicationType = {
     TravelingAbroad: 1
 };
 
+var cloneDeep$1 = require('lodash/cloneDeep');
+
+const defaultValidationResult$1 = {
+    isValid: true
+};
+
+const validateInsolvencyNumber = (insolvencyNumber) => {
+    var result = cloneDeep$1(defaultValidationResult$1);
+
+    return result
+};
+
 const addToHistoryN = n => (value, old) => [value, ...old.filter(h => h !== value).slice(0, n - 1)];
 
 const addToHistory = addToHistoryN(10);
@@ -155,5 +167,5 @@ const Languages = {};
 Languages[Languages['English'] = 'EN'] = 'English';
 Languages[Languages['BahasaMalaya'] = 'BM'] = 'BahasaMalaya';
 
-export { AssetCategories, getSingleAssetCategories, validateSubmitAssets, ApplicationStatus, ApplicationType, addToHistoryN, addToHistory, Groups, UsageCategories, States, Services, ParticipantSides, Languages };
+export { AssetCategories, getSingleAssetCategories, validateSubmitAssets, ApplicationStatus, ApplicationType, validateInsolvencyNumber, addToHistoryN, addToHistory, Groups, UsageCategories, States, Services, ParticipantSides, Languages };
 //# sourceMappingURL=index.esm.js.map

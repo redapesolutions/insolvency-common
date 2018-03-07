@@ -103,6 +103,18 @@ const ApplicationType = {
     TravelingAbroad: 1
 };
 
+var cloneDeep$1 = require('lodash/cloneDeep');
+
+const defaultValidationResult$1 = {
+    isValid: true
+};
+
+const validateInsolvencyNumber = (insolvencyNumber) => {
+    var result = cloneDeep$1(defaultValidationResult$1);
+
+    return result
+};
+
 const addToHistoryN = n => (value, old) => [value, ...old.filter(h => h !== value).slice(0, n - 1)];
 
 const addToHistory = addToHistoryN(10);
@@ -166,6 +178,7 @@ exports.getSingleAssetCategories = getSingleAssetCategories;
 exports.validateSubmitAssets = validateSubmitAssets;
 exports.ApplicationStatus = ApplicationStatus;
 exports.ApplicationType = ApplicationType;
+exports.validateInsolvencyNumber = validateInsolvencyNumber;
 exports.addToHistoryN = addToHistoryN;
 exports.addToHistory = addToHistory;
 exports.Groups = Groups;

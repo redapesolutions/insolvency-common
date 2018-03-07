@@ -93,8 +93,11 @@ export declare enum ApplicationStatus {
     Rejected
 }
 
-export interface IValidationResult {
+interface IValidationResult {
     isValid: boolean,
+}
+
+export interface ISubmitAssetsValidationResult extends IValidationResult {
     assetsCollection: {
         isValid: boolean
     },
@@ -112,5 +115,9 @@ export interface IValidationResult {
     },
 }
 
+export interface IInsolvencyNumberValidationResult extends IValidationResult {
+}
 
-export declare const validateSubmitAssets: (assets: Asset[]) => IValidationResult
+
+export declare function validateSubmitAssets (assets: Asset[]): IValidationResult
+export declare function validateInsolvencyNumber (insolvencyNumber: string): IInsolvencyNumberValidationResult

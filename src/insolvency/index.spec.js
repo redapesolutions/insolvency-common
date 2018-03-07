@@ -1,4 +1,4 @@
-const { ApplicationStatus, ApplicationType } = require('../../build/index.umd')
+const { ApplicationStatus, ApplicationType, validateInsolvencyNumber } = require('../../build/index.umd')
 
 describe('Appications status', () => {
     it('shouldhave specific statueses', () => {
@@ -18,5 +18,12 @@ describe('Appications status', () => {
 describe('Appications type', () => {
     it('shouldhave specific statueses', () => {
         expect(ApplicationType.TravelingAbroad).toEqual(1)
+    })
+})
+
+describe('InsolvencyNumber', () => {
+    it('Should always return true', () => {
+        var result = validateInsolvencyNumber('123123123123')
+        expect(result.isValid).toEqual(true)
     })
 })
