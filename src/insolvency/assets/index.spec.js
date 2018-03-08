@@ -56,6 +56,23 @@ describe('validator', () => {
   it('should set false if amount is not a number', () => {
     let assets = [
       {
+        amount: Number("a")
+      }
+    ]
+    let result = validateSubmitAssets(assets)
+
+    expect(result.isValid).toEqual(false)
+    expect(result.assetsCollection.isValid).toEqual(true)
+    expect(result.amount.isValid).toEqual(false)
+    expect(result.amount.invalidElementIndexes[0]).toEqual(0)
+    expect(result.category.isValid).toEqual(false)
+    expect(result.category.invalidElementIndexes[0]).toEqual(0)
+    expect(result.description.isValid).toEqual(false)
+    expect(result.description.invalidElementIndexes[0]).toEqual(0)
+  })
+  it('should set false if amount is NaN', () => {
+    let assets = [
+      {
         amount: "0"
       }
     ]

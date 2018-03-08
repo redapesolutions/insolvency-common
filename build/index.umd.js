@@ -34,7 +34,7 @@ const getSingleAssetCategories = () => {
 };
 
 var isArray = require('lodash/isArray');
-var isNumber = require('lodash/isNumber');
+var isFinite = require('lodash/isFinite');
 var isString = require('lodash/isString');
 var cloneDeep = require('lodash/cloneDeep');
 const defaultValidationResult = {
@@ -70,7 +70,7 @@ const validateSubmitAssets = (assets) => {
     for (let asset of assets) {
         index++;
 
-        if (asset.amount !== null && (!isNumber(asset.amount) || asset.amount <= 0)) {
+        if (asset.amount !== null && (!isFinite(asset.amount) || asset.amount <= 0)) {
             result.isValid = false;
             result.amount.isValid = false;
             result.amount.invalidElementIndexes.push(index);
