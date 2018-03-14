@@ -79,7 +79,8 @@ export declare enum AssetCategories {
 }
 
 export declare enum ApplicationType {
-    TravelingAbroad
+    TravelingAbroad,
+    WorkWithFamily
 }
 
 export interface AssetsCollection {

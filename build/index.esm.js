@@ -94,7 +94,8 @@ ApplicationStatus[ApplicationStatus['Accepted'] = 'accepted'] = 'Accepted';
 ApplicationStatus[ApplicationStatus['Rejected'] = 'rejected'] = 'Rejected';
 
 const ApplicationType = {
-    TravelingAbroad: 1
+    TravelingAbroad: 1,
+    WorkWithFamily: 2
 };
 
 var cloneDeep$1 = require('lodash/cloneDeep');

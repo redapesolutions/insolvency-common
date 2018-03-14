@@ -6,6 +6,7 @@ ApplicationStatus[ApplicationStatus['Accepted'] = 'accepted'] = 'Accepted'
 ApplicationStatus[ApplicationStatus['Rejected'] = 'rejected'] = 'Rejected'
 
 export const ApplicationType = {
-    TravelingAbroad: 1
+    TravelingAbroad: 1,
+    WorkWithFamily: 2
 }
 
