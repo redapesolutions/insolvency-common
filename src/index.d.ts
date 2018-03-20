@@ -50,6 +50,14 @@ export declare enum Languages {
     BahasaMalaya
 }
 
+export declare enum CountryCodes {
+    Malaysia
+}
+
+export declare enum CountryPhoneCodes {
+    Malaysia
+}
+
 export interface Asset {
     //Three first are avilable after saving to DB
     AssetId?: string
